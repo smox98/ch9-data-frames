@@ -34,12 +34,13 @@ personal.expenditure["Food and Tobacco", "X1960"]
 
 # What was the highest expenditure category in 1960?
 personal.expenditure[personal.expenditure[, "X1960"] == max(personal.expenditure[, "X1960"]), "category"]
+personal.expenditure$category[personal.expenditure$X1960 == max(personal.expenditure$X1960)]
 
 # Define a function `HighestCategory` that takes in a year as a parameter, and
 # returns the highest spending category of that year
 HighestCategory <- function(year) {
   year.name <- paste0("X", year)
-  category <- personal.expenditure[personal.expenditure[, year.name] == max(personal.expenditure[, year.name]), "category"]
+  category <- personal.expenditure$category[personal.expenditure[[year.name]] == max(personal.expenditure[[year.name]])]
   return(category)
 }
 
